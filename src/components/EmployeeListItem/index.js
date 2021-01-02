@@ -28,6 +28,18 @@ handleFormSubmit = event => {
   this.searchRandomUser(this.state.search);
 };
 
+render() {
+  return (
+    <div>
+      <SearchBar
+      search={this.state.search}
+      handleFormSubmit={this.handleFormSubmit}
+      handleInputChange={this.handleInputChange}
+      />
+      <EmployeeList results={this.state.results} />
+    </div>
+  )
+}
 
 }
 
