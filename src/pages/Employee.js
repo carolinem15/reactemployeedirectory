@@ -4,6 +4,7 @@ import Col from "../components/Col";
 import Row from "../components/Row";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
+import ListGroup from "react-bootstrap/ListGroup"
 
 
 
@@ -14,12 +15,10 @@ function Employee() {
         <h1 className="text-center">Employee</h1>
         <Nav />
       </Header>
-      <Container>
-        <ListGroup>
           <Col size="md-12">
             <h1>Hello!</h1>
           </Col>
-        </div>
+        <ListGroup>
         <ListGroup.Item>
           <Col size="md-12">
             <p>Call Office</p>
@@ -41,8 +40,7 @@ function Employee() {
           </Col>
         </ListGroup.Item>
         </ListGroup>
-      </Container>
-    </div>
+        </div>
   );
 }
 
