@@ -5,6 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 function EmployeeList(props) {
   return (
     // mapping out the objects that we are receiving from API call
+    <div>
     <ListGroup>
       {props.results.map(result => (
         <ListGroup.Item key={result.id}>
@@ -21,6 +22,7 @@ function EmployeeList(props) {
         </ListGroup.Item>
       ))}
     </ListGroup>
+    </div>
   );
 }
 

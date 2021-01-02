@@ -1,12 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Employee from "./pages/Employee";
-import Wrapper from "./components/Wrapper";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+// import Home from "./pages/Home";
+// import Employee from "./pages/Employee";
+// import Wrapper from "./components/Wrapper";
+import EmployeeListItem from "./components/EmployeeListItem"
 
 function App() {
-  return (
-    <Router>
+  return <EmployeeListItem />;
+}
+
+export default App;
+
+{/* <Router>
       <div>
         <Wrapper>
           <Route exact path="/" component={Home} />
@@ -14,8 +19,4 @@ function App() {
           <Route exact path="/employee" component={Employee} />
         </Wrapper>
       </div>
-    </Router>
-  );
-}
-
-export default App;
+    </Router> */}

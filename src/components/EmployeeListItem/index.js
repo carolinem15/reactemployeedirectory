@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import SearchBar from "./SearchBar";
-import API from "../utils/API"
+import SearchBar from "../SearchBar";
+import API from "../../utils/API"
+import EmployeeList from "../EmployeeList"
 
 // class component to render API results
 class EmployeeListItem extends Component {
@@ -12,18 +13,15 @@ class EmployeeListItem extends Component {
 // using this lifecycle method now so that the first render completes before this is executed
 componentDidMount() {
   this.searchRandomUser("Ben")
-}
+};
 
 // why is it res.data.data in the class activity?
-searchRandomUser(query) {
+searchRandomUser = query => {
   API.search(query)
-  .then (res => {
-    console.log(res)
-    this.setState({
-    results: res.data.data })
-  })
-  .catch (error => console.log(error))
-}
+    .then(res => this.setState({ results: res.data.data }))
+    .catch(err => console.log(err));
+};
+
 
 // custom methods to handle input change and form submit
 handleInputChange = event => {
