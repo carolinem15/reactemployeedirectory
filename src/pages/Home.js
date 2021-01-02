@@ -5,7 +5,7 @@ import Row from "../components/Row";
 import Header from "../components/Header";
 import EmployeeList from "../components/EmployeeList"
 import SearchBar from "../components/SearchBar"
-// import EmployeeListItem from "../components/EmployeeListItem"
+import EmployeeListItem from "../components/EmployeeListItem"
 
 function Home() {
   return (
@@ -16,6 +16,7 @@ function Home() {
       <Container >
       <SearchBar />
       <EmployeeList />
+      <EmployeeListItem />
       </Container>
     </div>
   );
