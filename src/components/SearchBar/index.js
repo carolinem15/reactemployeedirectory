@@ -4,8 +4,6 @@ import "./style.css";
 
 function SearchBar(props) {
   return (
-    <div className="row">
-      <div className="col">
     <Form>
       <Form.Group>
         <Form.Label>
@@ -18,8 +16,6 @@ function SearchBar(props) {
         </button>
       </Form.Group>
       </Form>
-      </div>
-      </div>
   );
 }
 
