@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function CardBtn(props) {
+function SortBtn(props) {
   return (
     <button 
       onClick={props.onClick} 
@@ -11,4 +11,4 @@ function CardBtn(props) {
   );
 }
 
-export default CardBtn;
+export default SortBtn;

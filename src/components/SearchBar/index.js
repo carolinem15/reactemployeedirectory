@@ -1,33 +1,28 @@
 import React from "react";
+import Form from 'react-bootstrap/Form'; 
 import "./style.css";
 
-// Using the datalist element we can create autofill suggestions based on the props.breeds array
-function SearchForm(props) {
+function SearchBar(props) {
   return (
-    <form className="search">
-      <div className="form-group">
-        <label htmlFor="breed">Breed Name:</label>
-        <input
-          value={props.search}
-          onChange={props.handleInputChange}
-          name="breed"
-          list="breeds"
-          type="text"
-          className="form-control"
-          placeholder="Type in a dog breed to begin"
-          id="breed"
-        />
-        <datalist id="breeds">
-          {props.breeds.map(breed => (
-            <option value={breed} key={breed} />
-          ))}
-        </datalist>
-        <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">
+    <div className="row">
+      <div className="col">
+    <Form>
+      <Form.Group>
+        <Form.Label>
+          Search: 
+        </Form.Label>
+        <Form.Control type="text" name="search" placeholder="Enter employee name here" onChange={props.handleInputChange}
+          value={props.search} id="search"/>
+        <button onClick={props.handleFormSubmit} className="btn btn-primary mt-3">
           Search
         </button>
+      </Form.Group>
+      </Form>
       </div>
-    </form>
+      </div>
   );
 }
 
-export default SearchForm;
+// now build out handleInputChange and handleFormSubmit
+
+export default SearchBar;
