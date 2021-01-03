@@ -4,7 +4,7 @@ import Row from "./Row";
 import Col from "./Col";
 import Card from "./Card";
 import SearchForm from "./SearchForm";
-import EmployeeDetail from "./EmployeeDetail";
+// import EmployeeDetail from "./EmployeeDetail";
 import API from "../utils/API";
 
 class EmployeeContainer extends Component {
@@ -14,7 +14,10 @@ class EmployeeContainer extends Component {
 
   componentDidMount() {
     API.getRandomUsers()
-      .then(res => this.setState({ results: res.data }))
+      .then(res => {
+        console.log(res.data.results)
+        this.setState({ results: res.data })
+      })
       .catch(err => console.log(err));
    
   }
@@ -44,20 +47,22 @@ class EmployeeContainer extends Component {
             <Card
               heading="Employee"
             >
-              {this.state.results.results ? (
-                <EmployeeDetail
-                {...this.state.results.results.map((result) =>
-                  <li className="list-group-item" key={result.id}>
-                  <img alt="Employee" className="img-fluid" src={result.picture.thumbnail} style={{ margin: "0 auto" }} />
-                  <h3>{result.name.first} {result.name.last}</h3>
-                  <h3>Call Office {result.phone}</h3>
-                  <h3>Call Mobile {result.cell}</h3>
-                  <h3>Email {result.email}</h3>
-              </li>
-                )}
-                /> ) : (
+                {this.state.results.results ? (
+                  this.state.results.results.map((result) =>
+                    <li className="list-group-item" key={result.id}>
+                    <img alt="Employee" className="img-fluid" src={result.picture.thumbnail} style={{ margin: "0 auto" }} />
+                    <h3>{result.name.first} {result.name.last}</h3>
+                    <h3>Call Office {result.phone}</h3>
+                    <h3>Call Mobile {result.cell}</h3>
+                    <h3>Email {result.email}</h3>
+                </li>
+                  )
+                  ) : (
+                    <p>No results</p>
+                  )}
+                 ) : (
                   <p>No results</p>
-                )}
+                )
             </Card>
           </Col>
           <Col size="md-4">
