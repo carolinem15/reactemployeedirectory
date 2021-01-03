@@ -8,7 +8,8 @@ import API from "../utils/API";
 
 class EmployeeContainer extends Component {
   state = {
-    results: [{}]
+    results: [{}],
+    search: ""
   };
 
   componentDidMount() {
@@ -31,10 +32,6 @@ class EmployeeContainer extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-
-  };
-
-  render() {
     console.log(this.state.results.results)
     let filteredUsers;
 
@@ -45,10 +42,14 @@ class EmployeeContainer extends Component {
       console.log(filteredUsers)
       console.log(this.state.search)
 
-    // filteredUsers.map(result => {
-    //   console.log(result)
-    //   return {result};
-    // });
+    filteredUsers.map(result => {
+      console.log(this.state.result)
+     
+    });
+  };
+
+  render() {
+
         return (
       <Container>
         <Row>
