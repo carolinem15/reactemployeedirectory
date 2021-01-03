@@ -46,9 +46,11 @@ class EmployeeContainer extends Component {
             >
               {this.state.results.results ? (
                 <EmployeeDetail
-                {...this.state.results.results.map()}
-                  title={this.state.results.name}
-                  src={this.state.results.picture.thumbnail}
+                {...this.state.results.results.map((result) =>
+                  
+                )}
+                title={this.state.results.name}
+                src={this.state.results.picture.thumbnail}
                   phone={this.state.results.phone}
                   cell={this.state.result.cell}
                   email={this.state.result.email}
