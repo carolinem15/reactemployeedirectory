@@ -9,6 +9,7 @@ import API from "../utils/API";
 class EmployeeContainer extends Component {
   state = {
     results: [{}],
+    filteredUsers:[],
     search: ""
   };
 
@@ -16,7 +17,7 @@ class EmployeeContainer extends Component {
     API.getRandomUsers()
       .then(res => {
         console.log(res.data.results)
-        this.setState({ results: res.data })
+        this.setState({ results: res.data.results, filteredUsers: res.data.results})
       })
       .catch(err => console.log(err));
    
@@ -34,23 +35,20 @@ class EmployeeContainer extends Component {
     event.preventDefault();
     console.log(this.state.results.results)
     let filteredUsers;
-    // const form = document.getElementById("search")
 
     if (this.state.search)
-      filteredUsers = this.state.results.results.filter(results =>
-        results.name.first.startsWith(this.state.search)
+    filteredUsers = this.state.results.filter(results =>
+      results.name.first.startsWith(this.state.search)
       );
       console.log(filteredUsers)
       console.log(this.state.search)
       this.setState({
         filteredUsers: filteredUsers
       })
-      // form.reset()
       
-    this.state.filteredUsers.map(result => {
-      console.log(result)
-      
-    });
+    // filteredUsers.map(result => {
+    //   console.log(result)
+    // });
   };
 
   render() {
@@ -62,8 +60,8 @@ class EmployeeContainer extends Component {
             <Card
               heading="Employee"
             >
-                {this.state.results.results ? (
-                  this.state.results.results.map((result) =>
+                 {this.state.filteredUsers ? (
+                  this.state.filteredUsers.map((result) =>
                     <li className="list-group-item" key={result.id}>
                     <img alt="Employee" className="img-fluid" src={result.picture.thumbnail} style={{ margin: "0 auto" }} />
                     <h3>{result.name.first} {result.name.last}</h3>
