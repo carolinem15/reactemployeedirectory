@@ -4,6 +4,6 @@ const BASEURL = "https://randomuser.me/api/?";
 
 export default {
   getRandomUsers: function() {
-    return axios.get(BASEURL + "results=10")
+    return axios.get(BASEURL + "results=50")
   }
 };

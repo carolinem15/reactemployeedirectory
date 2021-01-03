@@ -5,19 +5,23 @@ import Col from "./Col";
 import Card from "./Card";
 import SearchForm from "./SearchForm";
 import API from "../utils/API";
+import axios from "axios";
+
 
 class EmployeeContainer extends Component {
   state = {
     results: [{}],
     filteredUsers:[],
-    search: ""
+    sortedUsers: [],
+    search: "",
+    alphabetical: "az"
   };
 
   componentDidMount() {
     API.getRandomUsers()
       .then(res => {
         console.log(res.data.results)
-        this.setState({ results: res.data.results, filteredUsers: res.data.results})
+        this.setState({ results: res.data.results, filteredUsers: res.data.results, sortedUsers: res.data.results})
       })
       .catch(err => console.log(err));
    
@@ -45,11 +49,31 @@ class EmployeeContainer extends Component {
       this.setState({
         filteredUsers: filteredUsers
       })
-      
-    // filteredUsers.map(result => {
-    //   console.log(result)
-    // });
   };
+
+  handleSort = event => {
+    event.preventDefault();
+    console.log(this.state.results.results)
+    let sortedUsers;
+
+    if (this.state.alphabetical === "az") {
+      console.log("sorted");
+      sortedUsers = this.state.results.sort((a, b) =>
+        a.name.first > b.name.first ? 1 : -1
+      );
+    } else {
+      sortedUsers = this.state.results.sort((a, b) =>
+        a.name.first < b.name.first ? 1 : -1
+      );
+    }
+      console.log(sortedUsers)
+      console.log(this.state.search)
+      this.setState({
+        sortedUsers: sortedUsers
+      })
+    
+
+  }
 
   render() {
 
@@ -81,6 +105,7 @@ class EmployeeContainer extends Component {
                 value={this.state.search}
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
+                handleSort={this.handleSort}
               />
             </Card>
           </Col>
