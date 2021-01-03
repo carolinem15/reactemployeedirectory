@@ -47,15 +47,19 @@ class EmployeeContainer extends Component {
         <Row>
           <Col size="md-8">
             <Card
-              heading={this.state.results.name.first}
+              heading="Employee"
             >
-              {this.state.results.name.first ? (
+              {this.state.results.results ? (
                 <EmployeeDetail
-                  title={this.state.results.name}
-                  src={this.state.results.picture.thumbnail}
-                  phone={this.state.results.phone}
-                  cell={this.state.result.cell}
-                  email={this.state.result.email}
+                {...results.map(result => (
+                  <li className="list-group-item" key={result.id}>
+                    <img alt="Employee" className="img-fluid" src={result.picture.thumbnail} style={{ margin: "0 auto" }} />
+                    <h3>{result.name.first} {result.name.last}</h3>
+                    <h3>Call Office {result.phone}</h3>
+                    <h3>Call Mobile {result.cell}</h3>
+                    <h3>Email {result.email}</h3>
+                </li>
+                ))}
                 /> ) : (
                   <p>No results</p>
                 )}
