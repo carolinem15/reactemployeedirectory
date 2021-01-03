@@ -4,7 +4,6 @@ import Row from "./Row";
 import Col from "./Col";
 import Card from "./Card";
 import SearchForm from "./SearchForm";
-// import EmployeeDetail from "./EmployeeDetail";
 import API from "../utils/API";
 
 class EmployeeContainer extends Component {
@@ -35,10 +34,8 @@ class EmployeeContainer extends Component {
 
   };
 
-  // dont need submitbtn bc when i get to .filter() it will do that dynamically as i type
-
   render() {
-  console.log(this.state.results.results)
+    console.log(this.state.results.results)
     let filteredUsers;
 
     if (this.state.search)
