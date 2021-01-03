@@ -34,6 +34,7 @@ class EmployeeContainer extends Component {
     event.preventDefault();
     console.log(this.state.results.results)
     let filteredUsers;
+    // const form = document.getElementById("search")
 
     if (this.state.search)
       filteredUsers = this.state.results.results.filter(results =>
@@ -41,10 +42,14 @@ class EmployeeContainer extends Component {
       );
       console.log(filteredUsers)
       console.log(this.state.search)
-
-    filteredUsers.map(result => {
-      console.log(this.state.result)
-     
+      this.setState({
+        filteredUsers: filteredUsers
+      })
+      // form.reset()
+      
+    this.state.filteredUsers.map(result => {
+      console.log(result)
+      
     });
   };
 
@@ -70,9 +75,6 @@ class EmployeeContainer extends Component {
                   ) : (
                     <p>No results</p>
                   )}
-                 ) : (
-                  <p>No results</p>
-                )
             </Card>
           </Col>
           <Col size="md-4">
