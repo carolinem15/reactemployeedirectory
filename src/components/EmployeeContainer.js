@@ -37,12 +37,7 @@ class EmployeeContainer extends Component {
 
   render() {
   console.log(this.state.results.results)
-
-  // map something in here
-  // ill want to pass all of the users (results) to employeedetail and then in employeedetail component is where ill map over these results
-  // look up ternary statements in react
         return (
-
       <Container>
         <Row>
           <Col size="md-8">
@@ -51,7 +46,7 @@ class EmployeeContainer extends Component {
             >
               {this.state.results.results ? (
                 <EmployeeDetail
-                {...results.map(result => (
+                {...this.state.results.results.map(result => (
                   <li className="list-group-item" key={result.id}>
                     <img alt="Employee" className="img-fluid" src={result.picture.thumbnail} style={{ margin: "0 auto" }} />
                     <h3>{result.name.first} {result.name.last}</h3>
