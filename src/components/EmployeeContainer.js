@@ -30,16 +30,28 @@ class EmployeeContainer extends Component {
     });
   };
 
-  // // When the form is submitted, search the Employee API for the value of `this.state.search`
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   this.searchEmployees(this.state.search);
-  // };
+  handleFormSubmit = event => {
+    event.preventDefault();
+
+  };
 
   // dont need submitbtn bc when i get to .filter() it will do that dynamically as i type
 
   render() {
   console.log(this.state.results.results)
+    let filteredUsers;
+
+    if (this.state.search)
+      filteredUsers = this.state.results.results.filter(results =>
+        results.name.first.startsWith(this.state.search)
+      );
+      console.log(filteredUsers)
+      console.log(this.state.search)
+
+    // filteredUsers.map(result => {
+    //   console.log(result)
+    //   return {result};
+    // });
         return (
       <Container>
         <Row>
