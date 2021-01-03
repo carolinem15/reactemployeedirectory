@@ -49,14 +49,16 @@ class EmployeeContainer extends Component {
             <Card
               heading={this.state.results.name.first}
             >
-
+              {this.state.results.name.first ? (
                 <EmployeeDetail
                   title={this.state.results.name}
                   src={this.state.results.picture.thumbnail}
                   phone={this.state.results.phone}
                   cell={this.state.result.cell}
                   email={this.state.result.email}
-                />
+                /> ) : (
+                  <p>No results</p>
+                )}
             </Card>
           </Col>
           <Col size="md-4">
